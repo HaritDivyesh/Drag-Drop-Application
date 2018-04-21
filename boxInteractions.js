@@ -29,7 +29,7 @@ $(function() {
     
         $("#NameBox").droppable({
                 drop: function( event, ui ) {
-                    $("#trash").droppable( "option", "disabled", false );
+                    $("#WorkSpace").droppable( "option", "disabled", false );
                 }
         });
         
@@ -39,6 +39,17 @@ $(function() {
                 },
                 drop: function( event, ui ) {
                     $( this ).droppable( "option", "disabled", true );
+
+                    // Make stuff happen
+                    var firstName = $( "#FirstName" );
+                    firstName.contextmenu(function() {
+                      console.log("Open first modal");
+                    });
+
+                    var lastName = $( "#LastName" );
+                    lastName.contextmenu(function() {
+                      console.log("Open second modal");
+                    });
                 }
         });
 });
