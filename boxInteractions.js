@@ -37,7 +37,6 @@ $(function() {
                     var firstName = $( "#FirstName" );
                     firstName.contextmenu(function() {
                       if(!firstOutside){
-                      console.log("Open first modal");
                       $('#firstNameModal').modal('show');
                       $( "#SaveFirstName" ).off().on('click' , function() {
                           console.log("Saving First name..");
@@ -51,7 +50,6 @@ $(function() {
                     var lastName = $( "#LastName" );
                     lastName.contextmenu(function() {
                     if(!secondOutside){
-                      console.log("Open second modal");
                       $('#secondNameModal').modal('show');
                       $( "#SaveSecondName" ).off().on('click' , function() {
                           console.log("Saving second name..");
