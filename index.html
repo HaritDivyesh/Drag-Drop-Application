@@ -2,7 +2,7 @@
 <html lang = "en">
    <head>
       <meta charset = "utf-8">
-      <title>jQuery UI Droppable - Default functionality</title>
+      <title>Philips - Drag &amp; Drop</title>
       
        <link rel = "stylesheet" href = "style.css">
       <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -25,5 +25,48 @@
                 <div id="FirstName" class="name"><span>First Name</span></div>
                 <div id="LastName" class="name"><span>Second Name</span></div>
         </div>
+
+        <!-- First Name Modal -->
+        <div class="modal fade" id="firstNameModal" tabindex="-1" role="dialog" aria-labelledby="firstNameModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="firstNameModalLabel">First Name</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Enter first name: <input type="text" id="FirstNameValue" name="FirstName">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="SaveFirstName" class="btn btn-primary">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Second Name Modal -->
+        <div class="modal fade" id="secondNameModal" tabindex="-1" role="dialog" aria-labelledby="secondNameModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="secondNameModalLabel">Second Name</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Enter second name: <input type="text" id="SecondNameValue" name="SecondName">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="SaveSecondName" class="btn btn-primary">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
    </body>
 </html>

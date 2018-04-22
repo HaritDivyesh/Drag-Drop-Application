@@ -21,6 +21,12 @@
 
 // });
 
+$(document).contextmenu(function() {
+    return false;
+});
+
+
+
 $(function() {
         $(".name").draggable({
                 revert: 'invalid',
@@ -44,12 +50,28 @@ $(function() {
                     var firstName = $( "#FirstName" );
                     firstName.contextmenu(function() {
                       console.log("Open first modal");
+                      $('#firstNameModal').modal('show');
+                      $( "#SaveFirstName" ).click(function() {
+                          console.log("Saving First name..");
+                          var enteredFirstName = $("#FirstNameValue").val();
+                          $('#firstNameModal').modal('hide');
+                          console.log(enteredFirstName);
+                        });
                     });
 
                     var lastName = $( "#LastName" );
                     lastName.contextmenu(function() {
                       console.log("Open second modal");
+                      $('#secondNameModal').modal('show');
+                      $( "#SaveSecondName" ).click(function() {
+                          console.log("Saving second name..");
+                          var enteredSecondName = $("#SecondNameValue").val();
+                          $('#secondNameModal').modal('hide');
+                          console.log(enteredSecondName);
+                        });
                     });
                 }
         });
 });
+
+
