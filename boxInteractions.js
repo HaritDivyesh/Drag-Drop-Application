@@ -39,7 +39,7 @@ $(function() {
                       if(!firstOutside){
                       console.log("Open first modal");
                       $('#firstNameModal').modal('show');
-                      $( "#SaveFirstName" ).click(function() {
+                      $( "#SaveFirstName" ).off().on('click' , function() {
                           console.log("Saving First name..");
                           enteredFirstName = $("#FirstNameValue").val();
                           $('#firstNameModal').modal('hide');
@@ -53,7 +53,7 @@ $(function() {
                     if(!secondOutside){
                       console.log("Open second modal");
                       $('#secondNameModal').modal('show');
-                      $( "#SaveSecondName" ).click(function() {
+                      $( "#SaveSecondName" ).off().on('click' , function() {
                           console.log("Saving second name..");
                           enteredSecondName = $("#SecondNameValue").val();
                           $('#secondNameModal').modal('hide');
@@ -62,8 +62,8 @@ $(function() {
                   }
 
                     });
-                    
-                    $( "#execute" ).click(function() {
+
+                    $( "#execute" ).off().on('click' , function() {
                           console.log(enteredFirstName + " " + enteredSecondName);
                     });
                 }
