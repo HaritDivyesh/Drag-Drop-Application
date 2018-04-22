@@ -7,6 +7,7 @@ var enteredFirstName = "";
 var enteredSecondName = "";
 var firstOutside = false;
 var secondOutside = false;
+var dataToDisplay = ""
 
 $(function() {
         $(".name").draggable({
@@ -61,8 +62,16 @@ $(function() {
 
                     });
 
+                    $( "#connect" ).off().on('click' , function() {
+                      dataToDisplay = "My name is " + enteredFirstName + " " +enteredSecondName
+                    });
+
+                    $( "#disconnect" ).off().on('click' , function() {
+                      dataToDisplay = enteredFirstName + " " +enteredSecondName
+                    });
+
                     $( "#execute" ).off().on('click' , function() {
-                          console.log(enteredFirstName + " " + enteredSecondName);
+                          console.log(dataToDisplay);
                     });
                 }
         });
