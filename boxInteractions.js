@@ -1,31 +1,12 @@
 
-// $(function() {
-
-//   $("#workspace").droppable({
-//                 out: function() {
-//                     $( this ).droppable( "option", "disabled", false );
-//                 },
-//                 drop: function( event, ui ) {
-//                     $( this ).droppable( "option", "disabled", true );
-//                 }
-//         });
-
-//   $( "#firstName" ).draggable({
-//     drag: function(event,ui){
-//       if($(this).data('droppedin')){
-//           $(this).data('droppedin').droppable('enable');
-//           $(this).data('droppedin',null);
-//           $(this).removeClass('dropped');
-//         }}
-//   });
-
-// });
-
 $(document).contextmenu(function() {
     return false;
 });
 
-
+var enteredFirstName = "";
+var enteredSecondName = "";
+var firstOutside = false;
+var secondOutside = false;
 
 $(function() {
         $(".name").draggable({
@@ -42,33 +23,48 @@ $(function() {
         $("#WorkSpace").droppable({
                 out: function() {
                     $( this ).droppable( "option", "disabled", false );
+                    firstOutside = true;
+                    secondOutside = true;
+                },
+                over : function(){
+                    firstOutside = false;
+                    secondOutside = false
                 },
                 drop: function( event, ui ) {
-                    $( this ).droppable( "option", "disabled", true );
+                    // $( this ).droppable( "option", "disabled", true );
 
                     // Make stuff happen
                     var firstName = $( "#FirstName" );
                     firstName.contextmenu(function() {
+                      if(!firstOutside){
                       console.log("Open first modal");
                       $('#firstNameModal').modal('show');
                       $( "#SaveFirstName" ).click(function() {
                           console.log("Saving First name..");
-                          var enteredFirstName = $("#FirstNameValue").val();
+                          enteredFirstName = $("#FirstNameValue").val();
                           $('#firstNameModal').modal('hide');
                           console.log(enteredFirstName);
                         });
+                      }
                     });
 
                     var lastName = $( "#LastName" );
                     lastName.contextmenu(function() {
+                    if(!secondOutside){
                       console.log("Open second modal");
                       $('#secondNameModal').modal('show');
                       $( "#SaveSecondName" ).click(function() {
                           console.log("Saving second name..");
-                          var enteredSecondName = $("#SecondNameValue").val();
+                          enteredSecondName = $("#SecondNameValue").val();
                           $('#secondNameModal').modal('hide');
                           console.log(enteredSecondName);
                         });
+                  }
+
+                    });
+                    
+                    $( "#execute" ).click(function() {
+                          console.log(enteredFirstName + " " + enteredSecondName);
                     });
                 }
         });
