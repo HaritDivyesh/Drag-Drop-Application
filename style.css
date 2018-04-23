@@ -15,7 +15,7 @@ span {
 	position: fixed;
 	margin-top: 200px;
 	margin-left: 70px;
-	bottom: 380px;
+	bottom: 325px;
 }
 
 #namesText{
@@ -29,14 +29,14 @@ span {
 	position: fixed;
 	margin-top: 200px;
 	margin-left: 187px;
-	bottom: 380px;
+	bottom: 325px;
 }
 
 #execute {
 	position: fixed;
 	margin-top: 200px;
 	margin-left: 330px;
-	bottom: 380px;
+	bottom: 325px;
 }
 
 #FirstName {
@@ -52,7 +52,7 @@ span {
 	height: 330px;
 	width: 500px;
     background: #d9d9d9;
-    margin-top: 165px;
+    margin-top: 120px;
     margin-left: 550px;
     border: 1px solid black;
 }
@@ -66,7 +66,7 @@ span {
 #NameBox {
 	margin-top: -300px;
 	margin-left: 20px;
-	width: 330px;
+	width: 310px;
 	height: 100px;
 	border: 1px solid black;
     background: #999;
@@ -85,4 +85,13 @@ span {
     float: left;
     font-weight: bold;
     /*margin-right: 10px;*/
-}    
+}
+
+.img-src{
+    opacity:95;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    background-size:cover;
+    /*background-image:url('philips.jpg')*/
+}

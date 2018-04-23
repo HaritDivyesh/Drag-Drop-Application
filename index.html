@@ -15,10 +15,20 @@
       <script src="boxInteractions.js"></script>
    </head>
    
-   <body>
+   <body class= "img-src" style='background-image: url("philips-1-blur.jpg");'>
         <div>
-          <br/><br/><h2 style="margin-left: 610px;">Drag and Drop Application</h2>
+          <br/><br/><h2 style="margin-left: 530px;">Welcome to Philips Lighting Research</h2>
+          <br/><h2 style="margin-left: 610px;">Drag and Drop Application</h2>
         </div>
+         <div>
+          <h5 style="position: absolute; margin-left: 460px; top: 180px;">Please drag a name into the workspace and right click to edit and then execute.</h5>
+          <h5 style="position: absolute; margin-left: 530px; top: 200px;">Connect/disconnect when both boxes are in the workspace.</h5>
+
+        </div>
+        <div>
+          <h5 id="setConnectionStatus" style="position: absolute; margin-left: 660px; top: 280px;">Connection status: Not defined</h4><br/>
+        </div>
+
          <div id="WorkSpace" >
                 <h3 id="WorkSpaceText">Work Space</h3>
                 <hr width="100%;" style="height:1px;border:none;color:#333;background-color:#333;" />
@@ -30,12 +40,12 @@
                 </div>
         </div>
 
-        <div>
+        <!-- <div>
           <br/><h5 id="setConnectionStatus" style="margin-left: 660px;">Connection status: Not defined</h4>
-        </div>
+        </div> -->
         
         <div>
-          <h4 id="namesText">Names</h4>
+          <h4 id="namesText" style="font-weight: bold; color: ">Names</h4>
         </div>
         <div id="NameBox">
                 <div id="FirstName" class="name"><span>First Name</span></div>
