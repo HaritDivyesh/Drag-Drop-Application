@@ -42,6 +42,7 @@ $(function() {
                       $( "#SaveFirstName" ).off().on('click' , function() {
                           console.log("Saving First name..");
                           enteredFirstName = $("#FirstNameValue").val();
+                          dataToDisplay = enteredFirstName;
                           $('#firstNameModal').modal('hide');
                           console.log(enteredFirstName);
                         });
@@ -55,6 +56,7 @@ $(function() {
                       $( "#SaveSecondName" ).off().on('click' , function() {
                           console.log("Saving second name..");
                           enteredSecondName = $("#SecondNameValue").val();
+                          dataToDisplay = enteredSecondName;
                           $('#secondNameModal').modal('hide');
                           console.log(enteredSecondName);
                         });
@@ -72,6 +74,8 @@ $(function() {
 
                     $( "#execute" ).off().on('click' , function() {
                           console.log(dataToDisplay);
+                          $( "#nameText" ).text(dataToDisplay);
+                          // $("#WorkSpaceText").append('<br/>' + dataToDisplay);
                     });
                 }
         });
