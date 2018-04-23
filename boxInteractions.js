@@ -8,6 +8,7 @@ var enteredSecondName = "";
 var firstOutside = false;
 var secondOutside = false;
 var dataToDisplay = ""
+var connectionStatus = "Not defined"
 
 $(function() {
         $(".name").draggable({
@@ -65,11 +66,19 @@ $(function() {
                     });
 
                     $( "#connect" ).off().on('click' , function() {
-                      dataToDisplay = "My name is " + enteredFirstName + " " +enteredSecondName
+                      dataToDisplay = "My name is " + enteredFirstName + " " +enteredSecondName;
+                      alert("Boxes are now connected!");
+                      connectionStatus = "Connected";
+                      $( "#setConnectionStatus" ).text(connectionStatus);
+                      $( "#setConnectionStatus" ).css('margin-left', '740px');
                     });
 
                     $( "#disconnect" ).off().on('click' , function() {
-                      dataToDisplay = enteredFirstName + " " +enteredSecondName
+                      dataToDisplay = enteredFirstName + " " +enteredSecondName;
+                      alert("Boxes have been disconnected");
+                      connectionStatus = "Disconnected";
+                      $( "#setConnectionStatus" ).text(connectionStatus);
+                      $( "#setConnectionStatus" ).css('margin-left', '725px');
                     });
 
                     $( "#execute" ).off().on('click' , function() {

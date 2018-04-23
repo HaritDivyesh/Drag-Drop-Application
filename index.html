@@ -2,7 +2,7 @@
 <html lang = "en">
    <head>
       <meta charset = "utf-8">
-      <title>Philips - Drag &amp; Drop</title>
+      <title>Drag &amp; Drop</title>
       
        <link rel = "stylesheet" href = "style.css">
       <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -16,15 +16,22 @@
    </head>
    
    <body>
+        <div>
+          <br/><br/><h2 style="margin-left: 610px;">Drag and Drop Application</h2>
+        </div>
          <div id="WorkSpace" >
-                <h3 id="WorkSpaceText" style="text-align: center;">Work Space</h3>
+                <h3 id="WorkSpaceText">Work Space</h3>
                 <hr width="100%;" style="height:1px;border:none;color:#333;background-color:#333;" />
-                <span id = "nameText" style="top: -90px;"></span>
+                <h5 id = "nameText" style="font-weight: bold; text-align: center;"></h5>
                 <div style="display:inline-block; vertical-align: middle;">
-                <button type="button" id="connect" class="btn btn-primary">Connect</button>
-                <button type="button" id="disconnect" class="btn btn-danger">Disconnect</button>
-                <button type="button" id="execute" class="btn btn-success">Execute</button>
-              </div>
+                  <button type="button" id="connect" class="btn btn-primary">Connect</button>
+                  <button type="button" id="disconnect" class="btn btn-danger">Disconnect</button>
+                  <button type="button" id="execute" class="btn btn-success">Execute</button>
+                </div>
+        </div>
+
+        <div>
+          <br/><h5 id="setConnectionStatus" style="margin-left: 660px;">Connection status: Not defined</h4>
         </div>
         
         <div id="NameBox">

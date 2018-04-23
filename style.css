@@ -1,23 +1,5 @@
 
 
-/*#firstName { 
-	width: 100px;
-	height: 50px;
-	padding: 0.5em;
-	float: left;
-	margin: 22px 5px 10px 0; 
-}
-
-#workspace { 
-	width: 300px;
-	height: 150px;
-	padding: 0.5em;
-	float: left; 
-	margin-top: 250px;
-	margin-left: 250px;   
-}*/
- 
-
 body {
         font: bold 12px arial;
 }
@@ -30,24 +12,24 @@ span {
 }
 
 #connect {
-	position: relative;
+	position: fixed;
 	margin-top: 200px;
-	margin-left: 60px;
-	bottom: 20px;
+	margin-left: 70px;
+	bottom: 380px;
 }
 
 #disconnect {
-	position: relative;
+	position: fixed;
 	margin-top: 200px;
-	margin-left: 30px;
-	bottom: 20px;
+	margin-left: 187px;
+	bottom: 380px;
 }
 
 #execute {
-	position: relative;
+	position: fixed;
 	margin-top: 200px;
-	margin-left: 40px;
-	bottom: 20px;
+	margin-left: 330px;
+	bottom: 380px;
 }
 
 #FirstName {
@@ -63,9 +45,15 @@ span {
 	height: 330px;
 	width: 500px;
     background: #d9d9d9;
-    margin-top: 250px;
+    margin-top: 165px;
     margin-left: 550px;
     border: 1px solid black;
+}
+
+#WorkSpaceText {
+	position: relative;
+	text-align: center;
+	top: 10px;
 }
 
 #NameBox {
