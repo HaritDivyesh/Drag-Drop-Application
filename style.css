@@ -18,6 +18,13 @@ span {
 	bottom: 380px;
 }
 
+#namesText{
+	margin-top: -350px;
+	margin-left: 120px;
+    padding:10px;
+    float: left
+}
+
 #disconnect {
 	position: fixed;
 	margin-top: 200px;
