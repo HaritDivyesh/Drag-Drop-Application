@@ -5,11 +5,12 @@ $(document).contextmenu(function() {
 
 var enteredFirstName = "";
 var enteredSecondName = "";
-var firstOutside = false;
-var secondOutside = false;
-var dataToDisplay = ""
-var connectionStatus = "Not defined"
-var currentItem = ""
+var firstOutside = true;
+var secondOutside = true;
+var dataToDisplay = "";
+var connectionStatus = "Not defined";
+var currentItem = "";
+var noItems = false
 
 $(function() {
         $(".name").draggable({
@@ -24,25 +25,41 @@ $(function() {
         });
         
         $("#WorkSpace").droppable({
-                out: function() {
+                out: function(event, ui) {
                     $( this ).droppable( "option", "disabled", false );
+                    currentItem = ui.draggable[0].id;
+
+                     var howMany = $(this).data("howMany");
+                      $(this).data("howMany", howMany-1);
+                      if ( howMany == 3){
+                        if (noItems){
+                          dataToDisplay = "";
+                          $("#execute").click();
+                        }
+                        noItems = true;
+                      }
+                      
                     if (currentItem == "FirstName"){
                       firstOutside = true;
-                      dataToDisplay = enteredFirstName;
-                      console.log(dataToDisplay);
-                    }
-                    else if (currentItem == "LastName"){
-                      secondOutside = true;
                       dataToDisplay = enteredSecondName;
-                      console.log(dataToDisplay);
                     }
+                    if (currentItem == "LastName"){
+                      secondOutside = true;
+                      dataToDisplay = enteredFirstName;
+                    }
+
                 },
                 over : function(){
                     firstOutside = false;
-                    secondOutside = false
+                    secondOutside = false;
+                    if (!firstOutside || !secondOutside){
+                      howMany = $(this).data("howMany") || 0;
+                      $(this).data("howMany", howMany+1);
+                    }
+                    
                 },
                 drop: function( event, ui ) {
-                    console.log(ui.draggable[0].id);
+                    // console.log(ui.draggable[0].id);
                     currentItem = ui.draggable[0].id;
                     // Make stuff happen
                     var firstName = $( "#FirstName" );
@@ -50,11 +67,11 @@ $(function() {
                       if(!firstOutside){
                       $('#firstNameModal').modal('show');
                       $( "#SaveFirstName" ).off().on('click' , function() {
-                          console.log("Saving First name..");
+                          // console.log("Saving First name..");
                           enteredFirstName = $("#FirstNameValue").val();
                           dataToDisplay = enteredFirstName;
                           $('#firstNameModal').modal('hide');
-                          console.log(enteredFirstName);
+                          // console.log(enteredFirstName);
                         });
                       }
                     });
@@ -64,15 +81,22 @@ $(function() {
                     if(!secondOutside){
                       $('#secondNameModal').modal('show');
                       $( "#SaveSecondName" ).off().on('click' , function() {
-                          console.log("Saving second name..");
+                          // console.log("Saving second name..");
                           enteredSecondName = $("#SecondNameValue").val();
                           dataToDisplay = enteredSecondName;
                           $('#secondNameModal').modal('hide');
-                          console.log(enteredSecondName);
+                          // console.log(enteredSecondName);
                         });
                   }
 
                     });
+
+                    if (currentItem == "FirstName"){
+                      dataToDisplay = enteredFirstName;
+                    }
+                    else if (currentItem == "LastName"){
+                      dataToDisplay = enteredSecondName;
+                    }
 
                     $( "#connect" ).off().on('click' , function() {
                       dataToDisplay = "My name is " + enteredFirstName + " " + enteredSecondName;
@@ -91,7 +115,7 @@ $(function() {
                     });
 
                     $( "#execute" ).off().on('click' , function() {
-                          console.log(dataToDisplay);
+                          // console.log(dataToDisplay);
                           $( "#nameText" ).text(dataToDisplay);
                     });
                 }
