@@ -59,19 +59,15 @@ $(function() {
                     
                 },
                 drop: function( event, ui ) {
-                    // console.log(ui.draggable[0].id);
                     currentItem = ui.draggable[0].id;
-                    // Make stuff happen
                     var firstName = $( "#FirstName" );
                     firstName.contextmenu(function() {
                       if(!firstOutside){
                       $('#firstNameModal').modal('show');
                       $( "#SaveFirstName" ).off().on('click' , function() {
-                          // console.log("Saving First name..");
                           enteredFirstName = $("#FirstNameValue").val();
                           dataToDisplay = enteredFirstName;
                           $('#firstNameModal').modal('hide');
-                          // console.log(enteredFirstName);
                         });
                       }
                     });
@@ -81,11 +77,9 @@ $(function() {
                     if(!secondOutside){
                       $('#secondNameModal').modal('show');
                       $( "#SaveSecondName" ).off().on('click' , function() {
-                          // console.log("Saving second name..");
                           enteredSecondName = $("#SecondNameValue").val();
                           dataToDisplay = enteredSecondName;
                           $('#secondNameModal').modal('hide');
-                          // console.log(enteredSecondName);
                         });
                   }
 
@@ -99,23 +93,26 @@ $(function() {
                     }
 
                     $( "#connect" ).off().on('click' , function() {
-                      dataToDisplay = "My name is " + enteredFirstName + " " + enteredSecondName;
-                      alert("Boxes are now connected!");
-                      connectionStatus = "Connected";
-                      $( "#setConnectionStatus" ).text(connectionStatus);
-                      $( "#setConnectionStatus" ).css('margin-left', '740px');
+                      if (!firstOutside && !secondOutside){
+                        dataToDisplay = "My name is " + enteredFirstName + " " + enteredSecondName;
+                        alert("Boxes are now connected!");
+                        connectionStatus = "Connected";
+                        $( "#setConnectionStatus" ).text(connectionStatus);
+                        $( "#setConnectionStatus" ).css('margin-left', '740px');
+                      }
                     });
 
                     $( "#disconnect" ).off().on('click' , function() {
-                      dataToDisplay = enteredFirstName + " " + enteredSecondName;
-                      alert("Boxes have been disconnected");
-                      connectionStatus = "Disconnected";
-                      $( "#setConnectionStatus" ).text(connectionStatus);
-                      $( "#setConnectionStatus" ).css('margin-left', '725px');
+                      if (!firstOutside && !secondOutside){
+                        dataToDisplay = enteredFirstName + " " + enteredSecondName;
+                        alert("Boxes have been disconnected");
+                        connectionStatus = "Disconnected";
+                        $( "#setConnectionStatus" ).text(connectionStatus);
+                        $( "#setConnectionStatus" ).css('margin-left', '725px');
+                    }
                     });
 
                     $( "#execute" ).off().on('click' , function() {
-                          // console.log(dataToDisplay);
                           $( "#nameText" ).text(dataToDisplay);
                     });
                 }
