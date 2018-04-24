@@ -9,6 +9,7 @@ var firstOutside = false;
 var secondOutside = false;
 var dataToDisplay = ""
 var connectionStatus = "Not defined"
+var currentItem = ""
 
 $(function() {
         $(".name").draggable({
@@ -25,16 +26,24 @@ $(function() {
         $("#WorkSpace").droppable({
                 out: function() {
                     $( this ).droppable( "option", "disabled", false );
-                    firstOutside = true;
-                    secondOutside = true;
+                    if (currentItem == "FirstName"){
+                      firstOutside = true;
+                      dataToDisplay = enteredFirstName;
+                      console.log(dataToDisplay);
+                    }
+                    else if (currentItem == "LastName"){
+                      secondOutside = true;
+                      dataToDisplay = enteredSecondName;
+                      console.log(dataToDisplay);
+                    }
                 },
                 over : function(){
                     firstOutside = false;
                     secondOutside = false
                 },
                 drop: function( event, ui ) {
-                    // $( this ).droppable( "option", "disabled", true );
-
+                    console.log(ui.draggable[0].id);
+                    currentItem = ui.draggable[0].id;
                     // Make stuff happen
                     var firstName = $( "#FirstName" );
                     firstName.contextmenu(function() {
@@ -66,7 +75,7 @@ $(function() {
                     });
 
                     $( "#connect" ).off().on('click' , function() {
-                      dataToDisplay = "My name is " + enteredFirstName + " " +enteredSecondName;
+                      dataToDisplay = "My name is " + enteredFirstName + " " + enteredSecondName;
                       alert("Boxes are now connected!");
                       connectionStatus = "Connected";
                       $( "#setConnectionStatus" ).text(connectionStatus);
@@ -74,7 +83,7 @@ $(function() {
                     });
 
                     $( "#disconnect" ).off().on('click' , function() {
-                      dataToDisplay = enteredFirstName + " " +enteredSecondName;
+                      dataToDisplay = enteredFirstName + " " + enteredSecondName;
                       alert("Boxes have been disconnected");
                       connectionStatus = "Disconnected";
                       $( "#setConnectionStatus" ).text(connectionStatus);
@@ -84,7 +93,6 @@ $(function() {
                     $( "#execute" ).off().on('click' , function() {
                           console.log(dataToDisplay);
                           $( "#nameText" ).text(dataToDisplay);
-                          // $("#WorkSpaceText").append('<br/>' + dataToDisplay);
                     });
                 }
         });
